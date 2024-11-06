@@ -59,8 +59,7 @@ if user_input:
     result_df['clean'] = result_df['kalimat'].apply(remove_url).apply(remove_html).apply(remove_emoji).apply(remove_symbols).apply(remove_numbers).apply(case_folding)
     result_df['tokenize'] = result_df['clean'].apply(tokenize)
     result_df['stopword removal'] = result_df['tokenize'].apply(remove_stopwords)
-    result_df['stemming'] = result_df['stopword removal'].apply(stemming)
-    result_df['final'] = result_df['stemming']
+    result_df['final'] = result_df['stopword removal']
 
     # 4. TF-IDF
     documents = result_df['final'].tolist()
