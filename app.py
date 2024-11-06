@@ -59,7 +59,10 @@ if st.button("Proses Teks"):
         # Menampilkan graf dan kata-kata penting
         important_words = build_word_graph(input_text, top_n=top_n)
         
-        st.write("Kata-kata Penting Berdasarkan Degree Centrality:")
-        st.write(important_words)
+        st.markdown("### Kata-kata Penting Berdasarkan Degree Centrality:")
+        
+        # Membuat tampilan daftar kata-kata penting dalam bentuk poin
+        for i, word in enumerate(important_words, 1):
+            st.write(f"{i}. **{word.capitalize()}**")
     else:
         st.write("Silakan masukkan teks terlebih dahulu.")
