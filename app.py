@@ -2,7 +2,6 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import re
-from Sastrawi.Stemmer.StemmerFactory import StemmerFactory
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import nltk
@@ -45,11 +44,6 @@ def tokenize(text):
 def remove_stopwords(text):
     return [word for word in text if word not in stop_words]
 
-factory = StemmerFactory()
-stemmer = factory.create_stemmer()
-
-def stemming(text):
-    return ' '.join([stemmer.stem(word) for word in text])
 
 # Input berita
 st.title("Proses Berita dan Analisis Similarity")
