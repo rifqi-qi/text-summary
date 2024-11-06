@@ -9,6 +9,10 @@ from nltk.corpus import stopwords
 import networkx as nx
 import matplotlib.pyplot as plt
 
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('punkt_tab')
+
 # Download stopwords untuk bahasa Indonesia
 nltk.download('stopwords')
 stop_words = stopwords.words('indonesian')
