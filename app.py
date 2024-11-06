@@ -1,16 +1,17 @@
 import streamlit as st
+import nltk
 import pandas as pd
 import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('punkt_tab')
-import nltk
 from nltk.corpus import stopwords
 import networkx as nx
 import matplotlib.pyplot as plt
+
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Fungsi preprocessing yang disesuaikan
 def remove_url(text):
