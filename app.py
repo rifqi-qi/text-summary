@@ -1,17 +1,17 @@
 import streamlit as st
-import nltk
 import pandas as pd
 import numpy as np
 import re
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
+import nltk
 from nltk.corpus import stopwords
 import networkx as nx
 import matplotlib.pyplot as plt
 
+# Download stopwords untuk bahasa Indonesia
 nltk.download('stopwords')
-nltk.download('punkt')
-nltk.download('punkt_tab')
+stop_words = stopwords.words('indonesian')
 
 # Fungsi preprocessing yang disesuaikan
 def remove_url(text):
@@ -44,7 +44,6 @@ def tokenize(text):
 def remove_stopwords(text):
     return [word for word in text if word not in stop_words]
 
-
 # Input berita
 st.title("Proses Berita dan Analisis Similarity")
 user_input = st.text_area("Masukkan Berita Baru", "")
@@ -59,7 +58,7 @@ if user_input:
     result_df['clean'] = result_df['kalimat'].apply(remove_url).apply(remove_html).apply(remove_emoji).apply(remove_symbols).apply(remove_numbers).apply(case_folding)
     result_df['tokenize'] = result_df['clean'].apply(tokenize)
     result_df['stopword removal'] = result_df['tokenize'].apply(remove_stopwords)
-    result_df['final'] = result_df['stopword removal']
+    result_df['final'] = result_df['stopword removal'].apply(lambda x: ' '.join(x))
 
     # 4. TF-IDF
     documents = result_df['final'].tolist()
