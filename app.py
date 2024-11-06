@@ -13,10 +13,6 @@ nltk.download('stopwords')
 nltk.download('punkt')
 nltk.download('punkt_tab')
 
-# Download stopwords untuk bahasa Indonesia
-nltk.download('stopwords')
-stop_words = stopwords.words('indonesian')
-
 # Fungsi preprocessing yang disesuaikan
 def remove_url(text):
     return re.sub(r'https?://\S+|www\.\S+', '', text)
