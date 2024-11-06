@@ -2,3 +2,4 @@ streamlit
 matplotlib
 networkx
 scikit-learn
+nltk
