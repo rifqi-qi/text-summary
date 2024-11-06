@@ -117,6 +117,6 @@ if user_input:
         top_n_df = centrality_df.nlargest(top_n, 'Degree Centrality')
 
         # 11. Merge untuk hasil final
-        top_n_final_df = pd.merge(top_n_df[['Kalimat']], result_df, left_on='Kalimat', right_on='kalimat ke n')
+        top_n_final_df = pd.merge(top_n_df, result_df, left_on='Kalimat', right_on='kalimat ke n')
         st.subheader(f"Top {top_n} Kalimat berdasarkan Degree Centrality")
         st.write(top_n_final_df[['kalimat ke n', 'final']])
